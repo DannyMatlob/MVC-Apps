@@ -1,5 +1,5 @@
-//70% of this class was written by Danny Matlob
-//30% of this class was written by Hasnain Mucklai
+//90% of this class was written by Danny Matlob
+//10% of this class was written by Hasnain Mucklai
 package minefield;
 
 import mvc.*;

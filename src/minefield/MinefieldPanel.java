@@ -1,5 +1,4 @@
-//50% of this class was written by Danny Matlob
-//50% of this class was written by Hasnain Mucklai
+//100% of this class was written by Danny Matlob
 package minefield;
 
 import javax.swing.*;
