@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MVCApps:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MVCApps_jar</output-path>
+    <root id="archive" name="MVCApps.jar">
+      <element id="module-output" name="MVCApps" />
+    </root>
+  </artifact>
+</component>
