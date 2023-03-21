@@ -59,10 +59,8 @@ public class MinefieldPanel extends AppPanel {
 
     public static void main(String[] args) {
         AppFactory factory = null;
-        System.out.println(args.length);
         if (args.length == 2) {
             try {
-                System.out.println(args[0] + args[1]);
                 int width = Integer.parseInt(args[0]);
                 int percentMined = Integer.parseInt(args[1]);
                 factory = new MinefieldFactory(width, percentMined);
