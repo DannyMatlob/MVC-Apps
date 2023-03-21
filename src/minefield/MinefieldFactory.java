@@ -5,9 +5,19 @@ package minefield;
 import mvc.*;
 
 public class MinefieldFactory implements AppFactory{
+    //Default values
+    int mWidth = 20;
+    int percentMined = 10;
+
+    //Custom Constructor
+    MinefieldFactory(int width, int percent) {
+        mWidth = width;
+        percentMined = percent;
+    }
+    MinefieldFactory() {}
 
     public Model makeModel() {
-        return new Minefield(20,15);
+        return new Minefield(mWidth,percentMined);
     }
 
     public View makeView(Model m) {
