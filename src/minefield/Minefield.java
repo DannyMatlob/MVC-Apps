@@ -4,6 +4,7 @@ package minefield;
 import mvc.Model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -97,6 +98,20 @@ public class Minefield extends Model {
     public boolean isGameOver() {
         return gameOver;
     }
+    public void revealZeros (int x, int y, HashSet<MineSquare> searched) {
+        System.out.println("Searching: " + x + ", " + y);
+        if (searched.contains(mineField[x][y]) || mineField[x][y].neighborMines != 0) {
+            return;
+        } else {
+            searched.add(mineField[x][y]);
+            mineField[x][y].setRevealed(true);
+        }
+
+        if (y>1) revealZeros(x,y-1, searched);
+        if (y<mineFieldWidth-1) revealZeros(x,y+1, searched);
+        if (x>1) revealZeros(x-1,y, searched);
+        if (x<mineFieldWidth-1) revealZeros(x+1,y, searched);
+    }
     public void movePlayer(int dx, int dy) throws Exception {
         //System.out.println("Model: " + this + "Received Move Command: " + dx +"," + dy);
         if (gameOver) throw new Exception("Cannot move after game is over");
@@ -110,6 +125,7 @@ public class Minefield extends Model {
             mineField[playerX][playerY].setPlayerHere(false);
             playerX=tmpX;
             playerY=tmpY;
+            revealZeros(playerX,playerY, new HashSet<>());
             mineField[playerX][playerY].setRevealed(true);
             mineField[playerX][playerY].setPlayerHere(true);
             changed();
