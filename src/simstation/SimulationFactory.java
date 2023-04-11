@@ -13,31 +13,31 @@ public class SimulationFactory implements AppFactory {
 
     @Override
     public View makeView(Model m) {
-        return null;
+        return new SimulationView((Simulation) m);
     }
 
     @Override
     public String getTitle() {
-        return null;
+        return "Simstation";
     }
 
     @Override
     public String[] getHelp() {
-        return new String[0];
+        return new String[] { "Start: begins the simulation","Suspend: pauses the simulation", "Resume: resumes the simulation", "Stop: halts the simulation"};
     }
 
     @Override
     public String about() {
-        return null;
+        return "null";
     }
 
     @Override
     public String[] getEditCommands() {
-        return new String[0];
+        return new String[] {"Start","Suspend","Resume","Stop","Stats"};
     }
 
     @Override
     public Command makeEditCommand(Model m, String name, Object source) {
-        return null;
+        return new SimulationCommand(m, name);
     }
 }

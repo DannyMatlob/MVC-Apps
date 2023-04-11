@@ -14,33 +14,21 @@ public enum Heading {
     ;
 
     public static Heading random() {
-        int headingNum = Utilities.rng.nextInt(8);
+        int headingNum = Utilities.rng.nextInt(3);
         switch (headingNum) {
-            case 1:  {
+            case 0:  {
                 return NORTH;
             }
+            case 1: {
+                return SOUTH;
+            }
             case 2: {
-                return NORTHEAST;
+                return EAST;
             }
             case 3: {
                 return WEST;
             }
-            case 4: {
-                return NORTHWEST;
-            }
-            case 5: {
-                return SOUTH;
-            }
-            case 6: {
-                return SOUTHWEST;
-            }
-            case 7: {
-                return SOUTHEAST;
-            }
-            case 8: {
-                return EAST;
-            }
-            default: return NORTH;
         }
+        return null;
     }
 }
