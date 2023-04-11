@@ -54,9 +54,7 @@ public class Agent implements Serializable, Runnable {
     public synchronized void suspend() {
         suspended = true;
     }
-    public synchronized void resume() {
-        suspended = false;
-    }
+    public synchronized void resume() {notify();}
     public synchronized void stop() {
         stopped = true;
     }

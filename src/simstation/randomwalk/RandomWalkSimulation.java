@@ -6,9 +6,10 @@ import simstation.*;
 public class RandomWalkSimulation extends Simulation {
 
     public void populate() {
-        for(int i = 0; i < 15; i++)
+        for(int i = 0; i < 15; i++) {
             System.out.println("Adding drunk: " + i);
             addAgent(new Drunk());
+        }
     }
 
     public static void main(String[] args) {

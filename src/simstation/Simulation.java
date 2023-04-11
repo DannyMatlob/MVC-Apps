@@ -9,6 +9,7 @@ public class Simulation extends Model {
     List<Agent> agents = new ArrayList<>();
     private Timer timer;
     private int clock;
+    boolean started = false;
 
     ClockUpdater cu = new ClockUpdater();
 
@@ -30,6 +31,7 @@ public class Simulation extends Model {
     }
 
     public void start() {
+        if (started) return;
         populate();
         startTimer();
         for (Agent a : agents) {
@@ -37,6 +39,7 @@ public class Simulation extends Model {
             Thread thread = new Thread(a);
             thread.start();
         }
+        started = true;
     }
     public void suspend() {
         stopTimer();
@@ -71,7 +74,7 @@ public class Simulation extends Model {
     }
     public void populate() {}
 
-    public void addAgent(Agent a) {
+    public synchronized void addAgent(Agent a) {
         System.out.println("Adding agent");
         agents.add(a);
         a.setWorld(this);

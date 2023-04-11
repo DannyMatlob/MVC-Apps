@@ -6,6 +6,7 @@ import mvc.Model;
 import mvc.View;
 
 public class SimulationFactory implements AppFactory {
+    String[] commands = new String[] {"Start","Suspend","Resume","Stop","Stats"};
     @Override
     public Model makeModel() {
         return null;
@@ -28,16 +29,21 @@ public class SimulationFactory implements AppFactory {
 
     @Override
     public String about() {
-        return "null";
+        return "Help Testing 123";
     }
 
     @Override
     public String[] getEditCommands() {
-        return new String[] {"Start","Suspend","Resume","Stop","Stats"};
+        return commands;
     }
 
     @Override
     public Command makeEditCommand(Model m, String name, Object source) {
-        return new SimulationCommand(m, name);
+        for (String c : commands) {
+            if (c.equals(name)) {
+                return new SimulationCommand(m, name);
+            }
+        }
+        return null;
     }
 }
