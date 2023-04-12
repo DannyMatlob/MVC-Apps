@@ -8,6 +8,8 @@
 
 package simstation.prisonersdilemma;
 
+import simstation.Agent;
+
 import java.util.Random;
 
 public class RandomlyCooperate extends Strategy

@@ -12,7 +12,7 @@ public class Agent implements Serializable, Runnable {
     boolean suspended = false;
     boolean stopped = false;
 
-    Simulation world;
+    protected Simulation world;
     Thread myThread;
 
     public void setWorld(Simulation s) {
@@ -59,22 +59,44 @@ public class Agent implements Serializable, Runnable {
         stopped = true;
     }
     public synchronized void update() {}
-    public synchronized void move(int steps) {
-        switch (heading) {
-            case NORTH: {
-                yc-=steps;
+    public synchronized void move(int steps)
+    {
+        switch (heading)
+        {
+            case NORTH:
+            {
+                yc -= steps;
+                if(getY() < 0)
+                {
+                    yc = (500 - (steps - yc));
+                }
                 break;
             }
-            case SOUTH: {
+            case SOUTH:
+            {
                 yc+=steps;
+                if(getY() > 500)
+                {
+                    yc = (0 + steps - (500 - getY()));
+                }
                 break;
             }
-            case EAST: {
-                xc+=steps;
+            case EAST:
+            {
+                xc += steps;
+                if(getX() > 500)
+                {
+                    xc = (0 + steps - (500 - getX()));
+                }
                 break;
             }
-            case WEST: {
+            case WEST:
+            {
                 xc-=steps;
+                if(getX() < 0)
+                {
+                    xc = (500 - (steps - getX()));
+                }
                 break;
             }
         }

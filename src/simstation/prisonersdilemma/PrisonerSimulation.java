@@ -41,7 +41,7 @@ public class PrisonerSimulation extends Simulation
         double randCount = 0;
         double tit4TatCount = 0;
 
-        for(Agent prisoner : getAgents())
+        for(Agent prisoner : agents)
         {
             Prisoner temp = (Prisoner)prisoner;
             String type = temp.getStrategy().getType();

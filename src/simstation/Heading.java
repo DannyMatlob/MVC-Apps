@@ -14,7 +14,7 @@ public enum Heading {
     ;
 
     public static Heading random() {
-        int headingNum = Utilities.rng.nextInt(3);
+        int headingNum = Utilities.rng.nextInt(4);
         switch (headingNum) {
             case 0:  {
                 return NORTH;

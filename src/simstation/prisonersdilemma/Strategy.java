@@ -10,6 +10,7 @@ package simstation.prisonersdilemma;
 
 public abstract class Strategy
 {
+    Prisoner prisoner;
     private String type;
     abstract boolean cooperate();
     abstract String getType();
