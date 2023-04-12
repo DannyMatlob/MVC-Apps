@@ -42,6 +42,6 @@ public class SimulationCommand extends Command {
         if (suspend) s.suspend();
         if (resume) s.resume();
         if (stop) s.stop();
-        if (stats); //NO STATS YET
+        if (stats) s.stats();
     }
 }

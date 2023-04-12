@@ -11,6 +11,7 @@ package simstation.prisonersdilemma;
 import mvc.Utilities;
 import simstation.Agent;
 import simstation.Heading;
+import simstation.Simulation;
 
 class Prisoner extends Agent
 {
@@ -68,7 +69,7 @@ class Prisoner extends Agent
         int steps = Utilities.rng.nextInt(10) + 1;
         move(steps);
 
-        Prisoner opponent = (Prisoner)(getWorld().getNeighbor(this, 10));
+        Prisoner opponent = (Prisoner)(world.getNeighbor(this, 10));
         if(opponent != null) {
             if (strategy.cooperate() && opponent.cooperate()) {
                 updateFitness(3);
@@ -89,6 +90,7 @@ class Prisoner extends Agent
             }
         }
     }
+
 
     public void updateFitness(int amt) {
         this.fitness += amt;

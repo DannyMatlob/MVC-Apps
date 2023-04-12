@@ -3,10 +3,12 @@ package simstation;
 import minefield.MineSquare;
 import mvc.*;
 
+import javax.swing.*;
 import java.util.*;
+import java.util.Timer;
 
 public class Simulation extends Model {
-    List<Agent> agents = new ArrayList<>();
+    protected List<Agent> agents = new ArrayList<>();
     private Timer timer;
     private int clock;
     boolean started = false;
@@ -73,6 +75,13 @@ public class Simulation extends Model {
         return null;
     }
     public void populate() {}
+
+    public void stats () {
+        JOptionPane.showMessageDialog(null,
+                "#agents = " + agents.size() + "\nclock = " + clock * 0.01 + " s",
+                "average",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
 
     public synchronized void addAgent(Agent a) {
         System.out.println("Adding agent");
