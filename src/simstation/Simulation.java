@@ -10,7 +10,7 @@ import java.util.Timer;
 public class Simulation extends Model {
     protected List<Agent> agents = new ArrayList<>();
     private Timer timer;
-    private int clock;
+    protected int clock;
     boolean started = false;
 
     ClockUpdater cu = new ClockUpdater();
@@ -37,7 +37,6 @@ public class Simulation extends Model {
         populate();
         startTimer();
         for (Agent a : agents) {
-            System.out.println("Starting agent: " + a);
             Thread thread = new Thread(a);
             thread.start();
         }

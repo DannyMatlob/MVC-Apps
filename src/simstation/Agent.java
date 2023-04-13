@@ -2,6 +2,7 @@ package simstation;
 
 import mvc.Utilities;
 
+import java.awt.*;
 import java.io.Serializable;
 
 public class Agent implements Serializable, Runnable {
@@ -11,6 +12,10 @@ public class Agent implements Serializable, Runnable {
     int yc = Utilities.rng.nextInt(500);
     boolean suspended = false;
     boolean stopped = false;
+    protected Color color = Color.gray;
+
+    public Color getColor() {return color;}
+    public void setColor(Color newColor) {color = newColor;}
 
     protected Simulation world;
     Thread myThread;

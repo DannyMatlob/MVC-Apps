@@ -16,4 +16,8 @@ public class PrisonerFactory extends SimulationFactory
 {
     public Model makeModel() { return new PrisonerSimulation(); }
     public String getTitle() { return "Prisoners Dilemma";}
+    @Override
+    public String about() {
+        return "A simulation for testing different strategies of prisoner's dilemma";
+    }
 }
