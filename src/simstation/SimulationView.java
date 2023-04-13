@@ -15,10 +15,10 @@ public class SimulationView extends View {
         super.paintComponent(gc);
         Color oldColor = gc.getColor();
 
-        gc.setColor(new Color(236, 14, 14));
         Iterator<Agent> agentIterator = s.iterator();
         while (agentIterator.hasNext()) {
             Agent a = agentIterator.next();
+            gc.setColor(a.getColor());
             int x = a.getX();
             int y = a.getY();
             gc.fillOval(x, y, 15, 15);

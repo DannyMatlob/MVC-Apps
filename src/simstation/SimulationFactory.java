@@ -29,7 +29,7 @@ public class SimulationFactory implements AppFactory {
 
     @Override
     public String about() {
-        return "Help Testing 123";
+        return "A framework for testing simulations";
     }
 
     @Override
