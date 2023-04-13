@@ -14,6 +14,7 @@ import simstation.prisonersdilemma.PrisonerFactory;
 
 import javax.swing.*;
 
+import java.awt.*;
 import java.util.*;
 
 public class FlockingSimulation extends Simulation
@@ -82,6 +83,11 @@ public class FlockingSimulation extends Simulation
         for(int i = 1; i < 21; i++)
         {
             Bird newBird = new Bird();
+            int rand = Utilities.rng.nextInt(3);
+            if (rand==0) newBird.setColor(Color.BLACK);
+            if (rand==1) newBird.setColor(Color.BLUE);
+            if (rand==2) newBird.setColor(Color.orange);
+            
             addAgent(newBird);
             System.out.println("added birds: " + i + " with speed " + newBird.getSpeed());
         }

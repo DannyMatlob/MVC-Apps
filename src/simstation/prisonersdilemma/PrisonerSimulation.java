@@ -12,20 +12,39 @@ import mvc.*;
 import simstation.*;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PrisonerSimulation extends Simulation
 {
+    public static final int COOPERATORS = 10;
+    public static final int CHEATERS = 10;
+    public static final int RANDOMCOOPERATORS = 10;
+    public static final int TIT4TATTERS = 10;
     public void populate()
     {
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < COOPERATORS; i++) {
             System.out.println("Adding cooperating prisoners: " + i);
-            addAgent(new Prisoner(new Cooperate()));
+            Agent coop = new Prisoner(new Cooperate());
+            coop.setColor(Color.green);
+            addAgent(coop);
+        }
+        for(int i = 0; i < CHEATERS; i++) {
             System.out.println("Adding cheating prisoners: " + i);
-            addAgent(new Prisoner(new Cheat()));
+            Agent cheat = new Prisoner(new Cheat());
+            cheat.setColor(Color.red);
+            addAgent(cheat);
+        }
+        for(int i = 0; i < RANDOMCOOPERATORS; i++) {
             System.out.println("Adding randomly cooperating prisoners: " + i);
-            addAgent(new Prisoner(new RandomlyCooperate()));
+            Agent randcoop = new Prisoner(new RandomlyCooperate());
+            randcoop.setColor(Color.magenta);
+            addAgent(randcoop);
+        }
+        for(int i = 0; i < TIT4TATTERS; i++) {
             System.out.println("Adding tit4tat prisoners: " + i);
-            addAgent(new Prisoner(new Tit4Tat()));
+            Agent tit4tat = new Prisoner(new Tit4Tat());
+            tit4tat.setColor(Color.cyan);
+            addAgent(tit4tat);
         }
     }
 
@@ -51,13 +70,13 @@ public class PrisonerSimulation extends Simulation
                 cooperateCount += 1;
             }
 
-            else if(type.equalsIgnoreCase("Cheat"))
+            else if(type.equalsIgnoreCase("RandCooperate"))
             {
                 avgRandCooperate += temp.getFitness();
                 randCount += 1;
             }
 
-            else if(type.equalsIgnoreCase("RandCooperate"))
+            else if(type.equalsIgnoreCase("Cheat"))
             {
                 avgCheat += temp.getFitness();
                 cheatCount += 1;

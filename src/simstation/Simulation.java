@@ -9,11 +9,11 @@ import java.util.Timer;
 
 public class Simulation extends Model {
     protected List<Agent> agents = new ArrayList<>();
-    private Timer timer;
+    transient private Timer timer;
     protected int clock;
     boolean started = false;
 
-    ClockUpdater cu = new ClockUpdater();
+    transient protected ClockUpdater cu = new ClockUpdater();
 
     private void startTimer() {
         timer = new Timer();

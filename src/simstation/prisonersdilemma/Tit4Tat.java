@@ -13,6 +13,9 @@ public class Tit4Tat extends Strategy
     private String type = "Tit4Tat";
     public boolean cooperate()
     {
+        if (prisoner.isPartnerCheated()) {
+            return false;
+        }
         return true;
     }
 

@@ -18,7 +18,7 @@ public class Agent implements Serializable, Runnable {
     public void setColor(Color newColor) {color = newColor;}
 
     protected Simulation world;
-    Thread myThread;
+    transient protected Thread myThread;
 
     public void setWorld(Simulation s) {
         world = s;

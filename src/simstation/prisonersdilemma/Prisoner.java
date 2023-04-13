@@ -27,6 +27,7 @@ class Prisoner extends Agent
         this.fitness = 0;
         this.partnerCheated = false;
         this.strategy = strategy;
+        strategy.prisoner = this;
     }
 
 
@@ -71,22 +72,21 @@ class Prisoner extends Agent
 
         Prisoner opponent = (Prisoner)(world.getNeighbor(this, 10));
         if(opponent != null) {
-            if (strategy.cooperate() && opponent.cooperate()) {
+            boolean thisCooperated = strategy.cooperate();
+            boolean enemyCooperated = opponent.cooperate();
+            setPartnerCheated(!enemyCooperated);
+            if (thisCooperated && enemyCooperated) {
                 updateFitness(3);
                 opponent.updateFitness(3);
-                setPartnerCheated(false);
-            } else if (strategy.cooperate() && !opponent.cooperate()) {
+            } else if (thisCooperated && !enemyCooperated) {
                 updateFitness(0);
                 opponent.updateFitness(5);
-                setPartnerCheated(true);
-            } else if (!strategy.cooperate() && opponent.cooperate()) {
+            } else if (!thisCooperated && enemyCooperated) {
                 updateFitness(5);
                 opponent.updateFitness(0);
-                setPartnerCheated(false);
-            } else if (!strategy.cooperate() && !opponent.cooperate()) {
+            } else if (!thisCooperated && !enemyCooperated) {
                 updateFitness(1);
                 opponent.updateFitness(1);
-                setPartnerCheated(true);
             }
         }
     }
