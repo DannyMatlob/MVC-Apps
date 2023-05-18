@@ -11,10 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PlagueSimulation extends Simulation {
-    public static int INITIAL_INFECTED = 1; // % of population infected
-    public static int VIRULENCE = 1; // % chance of infection
-    public static int RESISTANCE = 99; // % chance of resisting infection
-    public static int TOTAL_POPULATION = 500;
+    public static int INITIAL_INFECTED = 10; // % of population infected
+    public static int VIRULENCE = 50; // % chance of infection
+    public static int RESISTANCE = 2; // % chance of resisting infection
+    public static int TOTAL_POPULATION = 20;
 
     public void populate() {
         for(int i = 0; i < TOTAL_POPULATION; i++) {
